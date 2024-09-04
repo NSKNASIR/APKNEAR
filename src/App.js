@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import EmailInboxList from "./components/EmailInboxList";
+import EmailAddressData from "./components/data/EmailAddressData";
+import TempmailStats from "./components/TempmailStats";
+import TempmailForm from "./components/TempmailForm";
+import { useState } from "react";
 
 function App() {
+  const [emailData, setEmailData] = useState(EmailAddressData);
+
+  const deleteEmailInbox = (id) => {
+    setEmailData(emailData.filter((item) => item.id !== id));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <TempmailForm />
+        <hr />
+
+        <div className="header-container">
+          <h4 className="header-title-inbox">Inbox:</h4>
+        </div>
+        <TempmailStats emailData={emailData} />
+        <EmailInboxList emailData={emailData} handleDelete={deleteEmailInbox} />
+      </div>
+    </>
   );
 }
 
