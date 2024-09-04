@@ -6,7 +6,7 @@ function Compose({ clicked, handleDelete }) {
   const [text, setText] = useState("");
   const [receiverEmail, setReceiverEmail] = useState("");
   const [subject, setSubject] = useState("");
-  const [senderEmail, setSenderEmail] = useState(""); // Sender email এর জন্য স্টেট
+  const [senderEmail, setSenderEmail] = useState(""); 
   const textareaRef = useRef(null);
 
   const adjustHeight = () => {
@@ -51,7 +51,7 @@ function Compose({ clicked, handleDelete }) {
               <h4 className="header-title">Compose:</h4>
             </div>
             <div className="text-display">
-              {/* React icons */}
+
               <button onClick={handleDelete} className="close">
                 <FaTimes color="purple" size={20} />
               </button>

@@ -132,14 +132,14 @@ input:focus {
 }
 
 #copychange {
-  display: flex; /* Flexbox ব্যবহার করে content সেন্টার করা */
-  justify-content: center; /* Horizontal সেন্টার */
-  align-items: center; /* Vertical সেন্টার */
-  gap: 10px; /* Button এর মাঝে gap দিতে */
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  gap: 10px; 
 }
 
 .sb {
-  margin: 0 10px; /* Button এর মাঝে কিছু gap দিতে */
+  margin: 0 10px; 
 }
 
 .feedback-stats {
@@ -233,7 +233,7 @@ input:focus {
   margin: 10px 0;
 }
 
-/* মোবাইলের জন্য স্পেসিফিক চেঞ্জ */
+
 @media (max-width: 600px) {
   .rating {
     display: flex;
@@ -248,53 +248,53 @@ input:focus {
   }
 
   .input-group input {
-    width: calc(100% - 20px); /* ইনপুটের প্রস্থ 100% করা হলো যাতে পুরো স্ক্রিন কভার করে */
+    width: calc(100% - 20px); 
   }
 
   .input-field,
   .textarea-field {
-    width: 100%; /* ইনপুট এবং টেক্সট এরিয়া পুরো স্ক্রিন কভার করবে */
-    padding: 8px; /* কিছুটা কম প্যাডিং মোবাইলের জন্য */
-    font-size: 14px; /* ফন্ট সাইজ মোবাইলের জন্য কিছুটা ছোট */
+    width: 100%;
+    padding: 8px; 
+    font-size: 14px; 
     margin: 5px 0;
   }
 
   #copychange {
-    flex-direction: column; /* মোবাইলে বাটনগুলো সোজা নিচে সাজাতে */
-    gap: 8px; /* বাটনের মাঝে কিছুটা গ্যাপ */
+    flex-direction: column; 
+    gap: 8px; 
   }
 
   .btn {
-    width: 100%; /* বাটনের প্রস্থ স্ক্রিন অনুযায়ী মানানসই */
-    height: 40px; /* মোবাইলের জন্য উচ্চতা অ্যাডজাস্ট করা */
-    font-size: 14px; /* মোবাইলের জন্য ফন্ট সাইজ ছোট করা */
+    width: 100%;
+    height: 40px; 
+    font-size: 14px; 
     padding: 8px;
   }
 
   header {
-    flex-direction: column; /* মোবাইলে হেডার কনটেন্ট একের পর এক সাজাবে */
-    align-items: center; /* সব এলিমেন্ট সেন্টার করা */
+    flex-direction: column; 
+    align-items: center; 
     margin-bottom: 20px;
   }
 
   .container {
-    padding: 0 15px; /* মোবাইলের জন্য কিছু প্যাডিং */
+    padding: 0 15px;
   }
 
   hr {
-    margin: 20px auto; /* উপরে ও নিচে কিছু মার্জিন এবং সেন্টার করা */
+    margin: 20px auto; 
   }
 }
 
-/* সাধারণ স্টাইল */
+
 hr {
-  border: none; /* ডিফল্ট বর্ডার সরানো */
-  height: 2px; /* বর্ডারের উচ্চতা */
-  background-color: #ccc; /* কালার পরিবর্তন */
-  margin: 20px 0; /* উপরে ও নিচে কিছু মার্জিন */
-  margin-left: auto; /* সেন্টার করা */
-  margin-right: auto; /* সেন্টার করা */
-  border-radius: 5px; /* গোল কোণ */
+  border: none; 
+  height: 2px; 
+  background-color: #ccc; 
+  margin: 20px 0;
+  margin-left: auto; 
+  margin-right: auto; 
+  border-radius: 5px; 
 }
 
 .input-field {
@@ -311,34 +311,34 @@ hr {
   padding: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  overflow: hidden; /* স্ক্রলবার দেখাবে না */
-  resize: none; /* ব্যবহারকারী দ্বারা resize করা যাবে না */
-  height: 150px; /* ডিফল্ট উচ্চতা */
-  transition: border-width 0.3s ease, height 0.3s ease; /* স্টাইল পরিবর্তনের জন্য transition */
+  overflow: hidden; 
+  resize: none; 
+  height: 150px;
+  transition: border-width 0.3s ease, height 0.3s ease; 
 }
 
 
 .header-container {
-  margin: 20px 0; /* উপরের এবং নিচের মার্জিন */
+  margin: 20px 0; 
 }
 
 .header-title {
-  font-size: 1.5rem; /* ফন্ট সাইজ */
-  font-weight: bold; /* ফন্টের মোটা */
-  text-decoration: underline; /* আন্ডারলাইন */
-  color: #333; /* টেক্সটের রঙ */
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  text-decoration: underline; 
+  color: #333; 
 }
 .header-title-inbox {
-  font-size: 1.5rem; /* ফন্ট সাইজ */
-  font-weight: bold; /* ফন্টের মোটা */
-  text-decoration: underline; /* আন্ডারলাইন */
-  color: #fff; /* টেক্সটের রঙ */
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  text-decoration: underline; 
+  color: #fff; 
 }
 
 .submit {
-  float: right; /* বাটনকে ডান দিকে নিয়ে যাবে */
+  float: right;
 }
 .containerBtn {
   display: flex;
-  justify-content: flex-end; /* আইটেমগুলোকে ডান দিকে সরিয়ে নেয় */
+  justify-content: flex-end; 
 }

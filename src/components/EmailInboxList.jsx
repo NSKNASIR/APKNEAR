@@ -16,7 +16,7 @@ function EmailInboxList({ emailData, handleDelete }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.1 }} // Optional: adding transition for smooth animation
+            transition={{ duration: 0.1 }} 
           > 
             <EmailInboxItem
               item={item}
@@ -31,7 +31,7 @@ function EmailInboxList({ emailData, handleDelete }) {
 
 EmailInboxList.propTypes = {
   emailData: PropTypes.array.isRequired,
-  handleDelete: PropTypes.func.isRequired, // Adding propTypes for handleDelete
+  handleDelete: PropTypes.func.isRequired, 
 };
 
 export default EmailInboxList;
