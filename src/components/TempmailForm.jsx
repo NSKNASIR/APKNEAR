@@ -14,17 +14,22 @@ function TempmailForm() {
   const [emailListItem, setEmailListItem] = useState("");
 
 
+  //change email list after 10 second
   useEffect(() => {
     const intervalId = setInterval(() => {
       console.log("10 minute por ei code run hochhe...");
-
+      console.log(emailList)
+      handleDeleteAndChangeEmail();
       setEmailList((prevList) =>
-        prevList.filter((email) => !email.deleteTime || email.deleteTime > Date.now())
+        prevList.filter((email) => !email.deleteTime || email.deleteTime > Date.now() && email.use===false)
       );
-    }, 600000); 
+
+    },  1000 * 10); 
 
     return () => clearInterval(intervalId); 
   }, []);
+
+
 
   useEffect(() => {
     let currentCounter = counter;
@@ -33,30 +38,39 @@ function TempmailForm() {
       currentCounter++;
     }
     if (currentCounter < emailList.length) {
+      //ai ta teo same kag koro
       setEmailListItem(emailList[currentCounter].email);
       setCounter(currentCounter);
     } else {
       setEmailListItem("");
     }
+    console.log(counter)
   }, [emailList, counter]);
 
   // Delete and change email
-  const handleDeleteAndChangeEmail = () => {
+const handleDeleteAndChangeEmail = () => {
+  const newList = emailList.filter((_, idx) => idx !== counter);
+  setEmailList(newList);
+  const newCounter = Math.min(counter, newList.length - 1);
+  setCounter(newCounter);
 
-    const newList = emailList.filter((_, idx) => idx !== counter);
-    setEmailList(newList);
-    const newCounter = Math.min(counter, newList.length - 1);
-    setCounter(newCounter);
+  if (newCounter < newList.length) {
+    // নতুন ইমেইল সেট করুন এবং এটিকে ব্যবহৃত হিসেবে মার্ক করুন
+    const updatedEmail = { ...newList[newCounter], use: true, deleteTime: Date.now() + 10 * 1000 };
+    
+    // ইমেইল আপডেট করে লিস্টে রাখুন
+    const updatedEmailList = newList.map((email, index) =>
+      index === newCounter ? updatedEmail : email
+    );
 
-   
-    if (newCounter < newList.length) {
-      setEmailListItem(newList[newCounter].email);
-    } else {
-      setEmailListItem(""); 
-    }
+    setEmailList(updatedEmailList);
+    setEmailListItem(updatedEmail.email);
+  } else {
+    setEmailListItem("");
+  }
 
-    createEmailAddress();
-  };
+  createEmailAddress();
+};
 
   const handleCompose = () => {
     setCompose(true);
@@ -81,7 +95,7 @@ function TempmailForm() {
       id: emailList.length,
       email: `${Math.random().toString(36).substring(2, 10)}@bookcaliforniatour.com`,
       use: false,
-      deleteTime: Date.now() + 10 * 60 * 1000 
+      deleteTime: Date.now() + 10  * 1000 
     };
     setEmailList((prevList) => [...prevList, newEmail]);
   };
